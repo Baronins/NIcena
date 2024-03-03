@@ -1,8 +1,5 @@
 [[redirects]]
 from = "/*"
 to = "/Templates/index.html"
-status = 200
-
-from = "/*"
 to = "/static/styles.css"
 status = 200
