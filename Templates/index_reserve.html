@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- Load Leaflet CSS library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Load custom CSS styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>{{ title }}</h1>
+            <h2>{{ subtitle }}</h2>
+        </div>
+        <!-- Empty space -->
+        <div class="spacer"></div>
+        <!-- Navigation container -->
+        <div class="navigation">
+            <!-- Page links -->
+            <div class="nav-link"><a href="/dati">Dati</a></div>
+            <div class="nav-link"><a href="/vērtējums">Vērtējums</a></div>
+            <div class="nav-link"><a href="/info">Info</a></div>
+        </div>
+        <!-- Empty space -->
+        <div class="spacer"></div>
+    </div>
+
+    <!-- Map container -->
+    <div id="map-container" class="map-container">
+        <div id="map" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- Load Leaflet JavaScript library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Load JawgMaps tile layer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/folium/0.12.1/folium.min.js" integrity="sha512-v6p2mDUBRhGnE+IiC/k1FFrC6bpB5wtXJ2xh4RbP30q2HyoSU0wUcBUuLVKkfauyAwUaAD77vN1yXjQZt1PTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Create a map centered around Riga with appropriate zoom level
+        var map = L.map('map').setView([56.9496, 24.1052], 13); // Riga coordinates: [56.9496, 24.1052]
+
+        // Add JawgMaps tile layer
+        var access_token = 'l7WnYRIQY2jKnYplkIqR3KzuU2tmE7133B1M8h7B8BUGYmj4llQZr0a2nGaXEeXB';
+        var jawgMapsLayer = L.tileLayer('https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=' + access_token, {
+            maxZoom: 22,
+            attribution: '<a href="https://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Center the map
+        map.setView([56.9496, 24.1052]); // Riga coordinates: [56.9496, 24.1052]
+    </script>
+</body>
+</html>

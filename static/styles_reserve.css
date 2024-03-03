@@ -1,0 +1,49 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+/* Page links */
+.nav-link {
+    margin: 0 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: lightgray;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Empty space */
+.spacer {
+    height: 20px;
+}
+
+.map-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto; /* Center the map container horizontally */
+    height: 500px; /* Set a fixed height for the map container */
+}
